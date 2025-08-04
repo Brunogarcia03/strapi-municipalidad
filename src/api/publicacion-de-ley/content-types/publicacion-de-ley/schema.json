@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publicacion_de_leys",
+  "info": {
+    "singularName": "publicacion-de-ley",
+    "pluralName": "publicacion-de-leys",
+    "displayName": "Publicación de ley"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "contenido": {
+      "type": "blocks"
+    },
+    "archivo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo",
+      "required": true
+    }
+  }
+}

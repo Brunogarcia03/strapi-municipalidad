@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_informe_trimestral_informe_trimestrals",
+  "info": {
+    "displayName": "informe-trimestral",
+    "icon": "filePdf"
+  },
+  "options": {},
+  "attributes": {
+    "primer_trimestre": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "segundo_trimestre": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "tercer_trimestre": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "total": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

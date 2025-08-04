@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transparencias",
+  "info": {
+    "singularName": "transparencia",
+    "pluralName": "transparencias",
+    "displayName": "Transparencia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fecha": {
+      "type": "string"
+    },
+    "presupuesto": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "stock_deuda": {
+      "type": "component",
+      "component": "informe-trimestral.informe-trimestral",
+      "repeatable": true
+    },
+    "gastos_finalidad_funcion": {
+      "type": "component",
+      "component": "informe-trimestral.informe-trimestral",
+      "repeatable": true
+    },
+    "ejecucion_presupuestaria": {
+      "type": "component",
+      "component": "informe-trimestral.informe-trimestral",
+      "repeatable": true
+    },
+    "situacion_economico_financiera": {
+      "type": "component",
+      "component": "informe-trimestral.informe-trimestral",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "funcionarios",
+  "info": {
+    "singularName": "funcionario",
+    "pluralName": "funcionarios",
+    "displayName": "Funcionario"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "cargo": {
+      "type": "string",
+      "required": true
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "autoridad": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "intendente",
+        "secretarios",
+        "directores"
+      ]
+    },
+    "contenido": {
+      "type": "blocks",
+      "required": true
+    },
+    "instagram": {
+      "type": "string",
+      "required": false
+    },
+    "email": {
+      "type": "string"
+    },
+    "declaracion": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}
