@@ -48,13 +48,10 @@
     "email": {
       "type": "string"
     },
-    "declaracion": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "files"
-      ]
+    "declaracion_jurada": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::declaracion-jurada.declaracion-jurada"
     }
   }
 }

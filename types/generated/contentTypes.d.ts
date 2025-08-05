@@ -406,6 +406,36 @@ export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDeclaracionJuradaDeclaracionJurada
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'declaraciones_juradas';
+  info: {
+    displayName: 'Declaracion Jurada';
+    pluralName: 'declaraciones-juradas';
+    singularName: 'declaracion-jurada';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    archivo: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::declaracion-jurada.declaracion-jurada'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDecretoDecreto extends Struct.CollectionTypeSchema {
   collectionName: 'decretos';
   info: {
@@ -456,7 +486,10 @@ export interface ApiFuncionarioFuncionario extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    declaracion: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    declaracion_jurada: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::declaracion-jurada.declaracion-jurada'
+    >;
     email: Schema.Attribute.String;
     imagen: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
@@ -1131,6 +1164,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::categoria.categoria': ApiCategoriaCategoria;
+      'api::declaracion-jurada.declaracion-jurada': ApiDeclaracionJuradaDeclaracionJurada;
       'api::decreto.decreto': ApiDecretoDecreto;
       'api::funcionario.funcionario': ApiFuncionarioFuncionario;
       'api::noticia.noticia': ApiNoticiaNoticia;

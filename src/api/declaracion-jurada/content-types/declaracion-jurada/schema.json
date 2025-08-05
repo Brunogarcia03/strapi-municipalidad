@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "declaraciones_juradas",
+  "info": {
+    "singularName": "declaracion-jurada",
+    "pluralName": "declaraciones-juradas",
+    "displayName": "Declaracion Jurada"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "archivo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}
