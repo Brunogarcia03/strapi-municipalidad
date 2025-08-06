@@ -30,6 +30,9 @@
       "type": "uid",
       "targetField": "titulo",
       "required": true
+    },
+    "fecha": {
+      "type": "date"
     }
   }
 }
