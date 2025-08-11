@@ -579,6 +579,39 @@ export interface ApiOrdenanzaOrdenanza extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPatrimonioPatrimonio extends Struct.CollectionTypeSchema {
+  collectionName: 'patrimonios';
+  info: {
+    displayName: 'Patrimonio';
+    pluralName: 'patrimonios';
+    singularName: 'patrimonio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contenido: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fuente: Schema.Attribute.Text;
+    imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    link: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'https://www.facebook.com/profile.php?id=100067440279110'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::patrimonio.patrimonio'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPublicacionDeLeyPublicacionDeLey
   extends Struct.CollectionTypeSchema {
   collectionName: 'publicacion_de_leys';
@@ -1173,6 +1206,7 @@ declare module '@strapi/strapi' {
       'api::funcionario.funcionario': ApiFuncionarioFuncionario;
       'api::noticia.noticia': ApiNoticiaNoticia;
       'api::ordenanza.ordenanza': ApiOrdenanzaOrdenanza;
+      'api::patrimonio.patrimonio': ApiPatrimonioPatrimonio;
       'api::publicacion-de-ley.publicacion-de-ley': ApiPublicacionDeLeyPublicacionDeLey;
       'api::transparencia.transparencia': ApiTransparenciaTransparencia;
       'plugin::content-releases.release': PluginContentReleasesRelease;

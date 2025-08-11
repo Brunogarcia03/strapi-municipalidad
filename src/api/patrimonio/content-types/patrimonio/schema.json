@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "patrimonios",
+  "info": {
+    "singularName": "patrimonio",
+    "pluralName": "patrimonios",
+    "displayName": "Patrimonio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "fuente": {
+      "type": "text"
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "contenido": {
+      "type": "blocks",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "default": "https://www.facebook.com/profile.php?id=100067440279110"
+    }
+  }
+}
