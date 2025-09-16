@@ -33,11 +33,11 @@
       "type": "uid",
       "targetField": "titulo"
     },
-    "categorias": {
+    "categoria": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::categoria.categoria",
-      "mappedBy": "noticia"
+      "inversedBy": "noticias"
     }
   }
 }

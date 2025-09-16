@@ -397,7 +397,7 @@ export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
     nombre: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    noticia: Schema.Attribute.Relation<'manyToOne', 'api::noticia.noticia'>;
+    noticias: Schema.Attribute.Relation<'oneToMany', 'api::noticia.noticia'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'nombre'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -521,8 +521,8 @@ export interface ApiNoticiaNoticia extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    categorias: Schema.Attribute.Relation<
-      'oneToMany',
+    categoria: Schema.Attribute.Relation<
+      'manyToOne',
       'api::categoria.categoria'
     >;
     contenido: Schema.Attribute.Blocks & Schema.Attribute.Required;
