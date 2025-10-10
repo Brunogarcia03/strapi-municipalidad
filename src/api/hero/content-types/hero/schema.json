@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "imagenes_hero",
+  "info": {
+    "singularName": "hero",
+    "pluralName": "imagenes-hero",
+    "displayName": "Hero"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "posicion_x": {
+      "type": "decimal",
+      "default": 50
+    },
+    "posicion_y": {
+      "type": "decimal",
+      "default": 50
+    }
+  }
+}
