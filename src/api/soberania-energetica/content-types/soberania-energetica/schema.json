@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "soberania_energeticas",
+  "info": {
+    "singularName": "soberania-energetica",
+    "pluralName": "soberania-energeticas",
+    "displayName": "Soberania Energetica"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fecha": {
+      "type": "date",
+      "required": true
+    },
+    "energia_ahorrada_kwh": {
+      "type": "decimal"
+    },
+    "ahorro_pesos": {
+      "type": "decimal"
+    }
+  }
+}

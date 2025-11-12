@@ -761,6 +761,37 @@ export interface ApiRedSocialRedSocial extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSoberaniaEnergeticaSoberaniaEnergetica
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'soberania_energeticas';
+  info: {
+    displayName: 'Soberania Energetica';
+    pluralName: 'soberania-energeticas';
+    singularName: 'soberania-energetica';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ahorro_pesos: Schema.Attribute.Decimal;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    energia_ahorrada_kwh: Schema.Attribute.Decimal;
+    fecha: Schema.Attribute.Date & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::soberania-energetica.soberania-energetica'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTransparenciaTransparencia
   extends Struct.CollectionTypeSchema {
   collectionName: 'transparencias';
@@ -1327,6 +1358,7 @@ declare module '@strapi/strapi' {
       'api::patrimonio.patrimonio': ApiPatrimonioPatrimonio;
       'api::publicacion-de-ley.publicacion-de-ley': ApiPublicacionDeLeyPublicacionDeLey;
       'api::red-social.red-social': ApiRedSocialRedSocial;
+      'api::soberania-energetica.soberania-energetica': ApiSoberaniaEnergeticaSoberaniaEnergetica;
       'api::transparencia.transparencia': ApiTransparenciaTransparencia;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
