@@ -505,7 +505,6 @@ export interface ApiDecretoDecreto extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    archivo: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -522,6 +521,7 @@ export interface ApiDecretoDecreto extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    url_pdf: Schema.Attribute.String;
   };
 }
 
@@ -643,7 +643,6 @@ export interface ApiOrdenanzaOrdenanza extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    archivo: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -660,6 +659,7 @@ export interface ApiOrdenanzaOrdenanza extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    url_pdf: Schema.Attribute.String;
   };
 }
 
@@ -708,7 +708,6 @@ export interface ApiPublicacionDeLeyPublicacionDeLey
     draftAndPublish: true;
   };
   attributes: {
-    archivo: Schema.Attribute.Media<'files'>;
     contenido: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -726,6 +725,7 @@ export interface ApiPublicacionDeLeyPublicacionDeLey
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    url_pdf: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
