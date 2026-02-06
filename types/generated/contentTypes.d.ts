@@ -521,7 +521,7 @@ export interface ApiDecretoDecreto extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url_pdf: Schema.Attribute.String;
+    url_pdf: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -712,7 +712,7 @@ export interface ApiPublicacionDeLeyPublicacionDeLey
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    fecha: Schema.Attribute.Date;
+    fecha: Schema.Attribute.Date & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -725,7 +725,7 @@ export interface ApiPublicacionDeLeyPublicacionDeLey
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url_pdf: Schema.Attribute.String & Schema.Attribute.Required;
+    url_pdf: Schema.Attribute.String;
   };
 }
 

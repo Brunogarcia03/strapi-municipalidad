@@ -24,11 +24,12 @@
       "required": true
     },
     "fecha": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "url_pdf": {
       "type": "string",
-      "required": true
+      "required": false
     }
   }
 }
