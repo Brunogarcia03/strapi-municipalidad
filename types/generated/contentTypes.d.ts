@@ -521,7 +521,7 @@ export interface ApiDecretoDecreto extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url_pdf: Schema.Attribute.String & Schema.Attribute.Required;
+    url_pdf: Schema.Attribute.String;
   };
 }
 
