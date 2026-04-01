@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "publicidades",
+  "info": {
+    "singularName": "publicidad",
+    "pluralName": "publicidades",
+    "displayName": "Publicidad"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Desde": {
+      "type": "datetime",
+      "required": true
+    },
+    "Hasta": {
+      "type": "datetime",
+      "required": true
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

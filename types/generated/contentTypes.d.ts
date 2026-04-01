@@ -729,6 +729,36 @@ export interface ApiPublicacionDeLeyPublicacionDeLey
   };
 }
 
+export interface ApiPublicidadPublicidad extends Struct.SingleTypeSchema {
+  collectionName: 'publicidades';
+  info: {
+    displayName: 'Publicidad';
+    pluralName: 'publicidades';
+    singularName: 'publicidad';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Desde: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    Hasta: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    imagen: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::publicidad.publicidad'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRedSocialRedSocial extends Struct.SingleTypeSchema {
   collectionName: 'redes_sociales';
   info: {
@@ -1095,12 +1125,13 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    alternativeText: Schema.Attribute.String;
-    caption: Schema.Attribute.String;
+    alternativeText: Schema.Attribute.Text;
+    caption: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     ext: Schema.Attribute.String;
+    focalPoint: Schema.Attribute.JSON;
     folder: Schema.Attribute.Relation<'manyToOne', 'plugin::upload.folder'> &
       Schema.Attribute.Private;
     folderPath: Schema.Attribute.String &
@@ -1120,7 +1151,7 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     mime: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    previewUrl: Schema.Attribute.String;
+    previewUrl: Schema.Attribute.Text;
     provider: Schema.Attribute.String & Schema.Attribute.Required;
     provider_metadata: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
@@ -1129,7 +1160,7 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.Text & Schema.Attribute.Required;
     width: Schema.Attribute.Integer;
   };
 }
@@ -1357,6 +1388,7 @@ declare module '@strapi/strapi' {
       'api::ordenanza.ordenanza': ApiOrdenanzaOrdenanza;
       'api::patrimonio.patrimonio': ApiPatrimonioPatrimonio;
       'api::publicacion-de-ley.publicacion-de-ley': ApiPublicacionDeLeyPublicacionDeLey;
+      'api::publicidad.publicidad': ApiPublicidadPublicidad;
       'api::red-social.red-social': ApiRedSocialRedSocial;
       'api::soberania-energetica.soberania-energetica': ApiSoberaniaEnergeticaSoberaniaEnergetica;
       'api::transparencia.transparencia': ApiTransparenciaTransparencia;
